@@ -3,12 +3,14 @@ import project1Snapshot from "./assets/Project1.png";
 import project2Snapshot from "./assets/Project2.png";
 import project3Snapshot from "./assets/Project3.png";
 import project4Snapshot from "./assets/Project4.png";
+import profilePhoto from "./assets/Profile.png";
 
 const navLinks = [
   { label: "About", target: "about" },
   { label: "Experience", target: "experience" },
   { label: "Skills", target: "skills" },
   { label: "Projects", target: "projects" },
+  { label: "GitHub", target: "github" },
   { label: "Education", target: "education" },
   { label: "Contact", target: "contact" }
 ];
@@ -75,6 +77,7 @@ const projects = [
     description:
       "A full-stack MERN platform for managing QA automation initiatives, framework execution, user roles, and AI-assisted reporting workflows.",
     github: "https://github.com/PriyaWestCliff/project-3",
+    liveDemo: "https://aiqa-lab-project3.onrender.com/",
     image: project1Snapshot,
     stack: "React, Node.js, Express.js, MongoDB, Mongoose, EJS, Bootstrap, SASS, PWA",
     highlights: [
@@ -102,7 +105,6 @@ const projects = [
     description:
       "Backend-focused product catalog web application for Velora Living, a curated luxury lifestyle and smart technology product brand.",
     github: "https://github.com/PriyaWestCliff/Project2-ProductCatalog-WebApp",
-    liveDemo: "http://localhost:3000",
     image: project2Snapshot,
     stack: "Node.js, Express.js, MongoDB, Mongoose, EJS, Bootstrap 4, SASS, Auth, PWA, Jest, Supertest",
     highlights: [
@@ -203,6 +205,7 @@ const projects = [
 
 function App() {
   const [themeVisible, setThemeVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     setThemeVisible(true);
@@ -212,11 +215,25 @@ function App() {
     <div className={`page-shell ${themeVisible ? "visible" : ""}`}>
       <header className="topbar">
         <div className="brand">Priya Poojary</div>
-        <nav>
+        <button
+          type="button"
+          className={`menu-toggle ${menuOpen ? "open" : ""}`}
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
+          onClick={() => setMenuOpen((current) => !current)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav id="primary-navigation" className={`site-nav ${menuOpen ? "open" : ""}`}>
           <ul>
             {navLinks.map((link) => (
               <li key={link.target}>
-                <a href={`#${link.target}`}>{link.label}</a>
+                <a href={`#${link.target}`} onClick={() => setMenuOpen(false)}>
+                  {link.label}
+                </a>
               </li>
             ))}
           </ul>
@@ -237,6 +254,15 @@ function App() {
                 <span className="meta-icon">✉️</span>
                 priya0309poojary@gmail.com
               </a>
+              <a
+                href="https://www.linkedin.com/in/priya-poojary-34a416408"
+                target="_blank"
+                rel="noreferrer"
+                className="hero-meta-item hero-linkedin"
+              >
+                <span className="meta-icon">🔗</span>
+                LinkedIn
+              </a>
             </div>
             <p className="hero-text">
               MBA graduate in Full Stack Web Development. I design and build enterprise-grade web applications with quality-first automation mindset for financial services, banking, and healthcare.
@@ -244,7 +270,19 @@ function App() {
             <div className="hero-actions">
               <a href="#contact" className="button primary">Contact Me</a>
               <a href="#projects" className="button secondary">View Projects</a>
+              <a
+                href="https://drive.google.com/file/d/1qapNBV29VYJAVGED_fAbLnhL7G7dq_ik/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Resume"
+                className="button secondary"
+              >
+                View Resume
+              </a>
             </div>
+          </div>
+          <div className="hero-photo fade-up delay-1">
+            <img src={profilePhoto} alt="Priya Poojary" />
           </div>
         </section>
 
@@ -257,7 +295,7 @@ function App() {
             <div>
               <p>
                 I am a full stack web developer with an MBA in Web Development and Design from Westcliff University (2026, GPA 3.86).
-                My background in QA automation and enterprise testing gives me a unique advantage—I build robust, scalable applications with built-in quality, performance, and security from day one.
+                My background in QA automation and enterprise testing gives me a unique advantage, I build robust, scalable applications with built-in quality, performance, and security from day one.
               </p>
               <p>
                 Specialized in React, Node.js, MongoDB, and cloud deployment. My career spans enterprise financial systems, banking platforms, and healthcare applications where I've designed end-to-end solutions, mentored teams, and delivered mission-critical web applications.
@@ -279,6 +317,12 @@ function App() {
               <div>
                 <strong>Location</strong>
                 <span>Newport Beach, California</span>
+              </div>
+              <div>
+                <strong>GitHub</strong>
+                <a href="https://github.com/PriyaWestCliff" target="_blank" rel="noreferrer">
+                  github.com/PriyaWestCliff
+                </a>
               </div>
             </div>
           </div>
@@ -372,6 +416,23 @@ function App() {
           </div>
         </section>
 
+        <section className="section github" id="github">
+          <div className="section-header">
+            <span>GitHub</span>
+            <h2>Featured Repositories</h2>
+          </div>
+          <div className="github-card fade-up">
+            <div className="github-copy">
+              <p>
+                Explore my GitHub portfolio for full-stack projects, automation solutions, and web development work.
+              </p>
+              <a href="https://github.com/PriyaWestCliff" target="_blank" rel="noreferrer" className="button primary">
+                View GitHub Profile
+              </a>
+            </div>
+          </div>
+        </section>
+
         <section className="section education" id="education">
           <div className="section-header">
             <span>Education</span>
@@ -404,7 +465,17 @@ function App() {
               I’m available for leadership roles in financial services, banking, healthcare automation, quality strategy, and digital transformation.
               Let’s talk about how I can help teams accelerate confident delivery.
             </p>
-            <a href="mailto:priya0309poojary@gmail.com" className="button primary">Email Me</a>
+            <div className="hero-actions">
+              <a href="mailto:priya0309poojary@gmail.com" className="button primary">Email Me</a>
+              <a
+                href="https://www.linkedin.com/in/priya-poojary-34a416408"
+                target="_blank"
+                rel="noreferrer"
+                className="button secondary"
+              >
+                Connect on LinkedIn
+              </a>
+            </div>
           </div>
         </section>
       </main>
