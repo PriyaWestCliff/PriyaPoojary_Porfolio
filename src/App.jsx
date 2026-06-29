@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import project1Snapshot from "./assets/Project1.png";
 import project2Snapshot from "./assets/Project2.png";
 import project3Snapshot from "./assets/Project3.png";
+import project4Snapshot from "./assets/Project4.png";
 
 const navLinks = [
   { label: "About", target: "about" },
@@ -163,6 +164,39 @@ const projects = [
       "JavaScript",
       "Responsive Design",
       "Static Website"
+    ]
+  },
+  {
+    title: "Booklist CRUD App — Full-Stack MERN CRUD Platform",
+    description:
+      "A full-stack CRUD application for managing book records with a React frontend and Express/MongoDB backend.",
+    github: "https://github.com/PriyaWestCliff/m6-w1-d3-lab-assignment",
+    image: project4Snapshot,
+    stack: "React, Node.js, Express.js, MongoDB, Mongoose, Bootstrap",
+    highlights: [
+      "Built a React frontend with reusable components for book creation, listing, update, and deletion.",
+      "Created Express.js REST APIs for `GET /posts`, `POST /posts`, `PUT /posts/:id`, `DELETE /posts/:id`.",
+      "Used Mongoose schemas and models to persist book data in MongoDB (`booklistdb`).",
+      "Implemented frontend/backend integration with `fetch()` to manage live book list state.",
+      "Styled the application using Bootstrap and delivered a responsive UI.",
+      "Configured a local Node/Express server running on port `5000` and a React app on `3000`."
+    ],
+    projectStrengths: [
+      "React frontend with reusable CRUD components",
+      "Express.js REST APIs for book data management",
+      "MongoDB persistence with Mongoose schemas and models",
+      "Full frontend/backend integration with fetch",
+      "Bootstrap responsive UI"
+    ],
+    techTags: [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "Bootstrap",
+      "REST APIs",
+      "CRUD Operations"
     ]
   }
 ];
