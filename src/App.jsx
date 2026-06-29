@@ -141,11 +141,12 @@ const projects = [
   {
     title: "Splashes Swim School Website",
     description:
-      "Responsive static website for a swim school, designed to present lessons, programs, locations, and contact information.",
+      "Responsive static website for a swim school, completed as a three-member group project with pages divided equally across the team.",
     github: "https://github.com/NEEEMO-LIO/project1_nl_tk_pp-WC",
     image: project3Snapshot,
     stack: "HTML, CSS, Bootstrap, JavaScript",
     highlights: [
+      "Collaborated in a three-member team, divided the website pages evenly, and submitted the completed project together.",
       "Built a multi-page front-end website with index.html, about.html, swimlessons.html, swimprograms.html, adultprograms.html, contactus.html, and signIn.html.",
       "Used Bootstrap for responsive layout and navigation.",
       "Styled the site with a custom style.css theme, hero images, and branded buttons.",
